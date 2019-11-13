@@ -4,12 +4,24 @@ const mongoose = require('mongoose');
 
 require('dotenv/config');
 
+mongoose.Promise = global.Promise;
 
 const app = express();
+const postsRoute = require('./routes/posts');
+
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
+
+app.use('/posts', postsRoute);
+
+app.get('/', (req, res) => {
+    res.send('<h1>Express homepage</h1>')
+});
+
 
 const connectToDatabase = () => {
     try {
-        mongoose.connect(process.env.DATABASE_URL, {
+        mongoose.connect(process.env.DB_CONNECTION, {
             useUnifiedTopology: true,
             useNewUrlParser: true
         }, () => console.log('Connected to a database successfully.'));
@@ -17,13 +29,6 @@ const connectToDatabase = () => {
         console.log('Failed connection to the database:', error)
     }
 };
-
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json());
-
-app.get('/', (req, res) => {
-    res.send('<h1>Express homepage</h1>')
-});
 
 connectToDatabase();
 
