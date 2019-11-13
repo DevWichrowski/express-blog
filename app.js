@@ -12,11 +12,11 @@ const connectToDatabase = () => {
         mongoose.connect(process.env.DATABASE_URL, {
             useUnifiedTopology: true,
             useNewUrlParser: true
-        }, () => console.log('Connected to a database successfuly'));
+        }, () => console.log('Connected to a database successfully.'));
     } catch (error) {
         console.log('Failed connection to the database:', error)
     }
-}
+};
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
