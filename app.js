@@ -1,5 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+
+require('dotenv/config');
+
 
 const app = express();
 
@@ -10,4 +14,4 @@ app.get('/', (req, res) => {
     res.send('<h1>Express homepage</h1>')
 });
 
-app.listen(3000);
+app.listen(3000, () => console.log('Listening on port 3000'));
