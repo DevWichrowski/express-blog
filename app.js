@@ -24,7 +24,11 @@ const connectToDatabase = () => {
         mongoose.connect(process.env.DB_CONNECTION, {
             useUnifiedTopology: true,
             useNewUrlParser: true
-        }, () => console.log('Connected to a database successfully.'));
+        });
+
+        mongoose.connection.on('connected', () => console.log('Connected to the database.'));
+        mongoose.connection.on('disconnected', () => console.log('Disconnected from database.'));
+        mongoose.connection.on('error', err => console.log(err));
     } catch (error) {
         console.log('Failed connection to the database:', error)
     }
