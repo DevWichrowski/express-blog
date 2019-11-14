@@ -1,61 +1,22 @@
 const express = require('express');
 const router = express.Router();
 const Post = require('../models/Post');
-
-// /posts
-router.get('/', async (req, res) => {
-    try {
-        const posts = await Post.find();
-        res.json(posts);
-    } catch (error) {
-        res.json({message: error})
-    }
-});
-
-router.post('/', async (req, res) => {
-    const post = new Post({
-        title: req.body.title,
-        description: req.body.description,
-    });
-
-    try {
-        const savedPost = await post.save()
-        res.json(savedPost);
-    } catch (error) {
-        res.json({message: error})
-    }
-});
-
-// GET SPECIFIC POST
-router.get('/:id', async (req, res) => {
-    try {
-        const post = await Post.findById(req.params.id);
-        res.json(post)
-    } catch (error) {
-        res.json({error})
-    }
-});
-
-// DELETE POST
-router.delete('/:id', async (req, res) => {
-    try {
-        const removedPost = await Post.deleteOne({_id: req.params.id});
-        res.json(removedPost);
-    } catch (error) {
-        res.json({error})
-    }
-});
+const {patch_post} = require("../controllers/posts");
+const {delete_post} = require("../controllers/posts");
+const {get_specific_post} = require("../controllers/posts");
+const {post_post} = require("../controllers/posts");
+const {get_posts} = require("../controllers/posts");
 
 
-// UPDATE POST
-router.patch('/:id', async (req, res) => {
-    try {
-        const updatedPost = await Post.updateOne({_id: req.params.id}, {$set: {title: req.body.title}});
-        res.json(updatedPost);
-    } catch (error) {
-        res.json({error})
-    }
-});
+router.get('/', get_posts);
+
+router.post('/', post_post);
+
+router.get('/:id', get_specific_post);
+
+router.delete('/:id', delete_post);
+
+router.patch('/:id', patch_post);
 
 
 module.exports = router;
