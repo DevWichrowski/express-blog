@@ -51,3 +51,13 @@ exports.patch_post = async (req, res) => {
         res.json({error})
     }
 };
+
+// exports.put_post = async (req, res) => {
+//     try {
+//         let foundPost = await Post.findByIdAndUpdate({_id: req.params.id}, {$set: req.body});
+//         console.log('req.body', req.body);
+//         res.send(foundPost);
+//     } catch (error) {
+//         res.json({errorMsg: error});
+//     }
+// };
