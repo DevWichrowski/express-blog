@@ -42,3 +42,12 @@ exports.delete_user = async (req, res) => {
         res.json({error})
     }
 };
+
+exports.update_user = async (req, res) => {
+    try {
+        const updatedPost = await User.updateOne({_id: req.params.id}, {$set: req.body});
+        res.json(updatedPost);
+    } catch (error) {
+        res.json({error})
+    }
+};
