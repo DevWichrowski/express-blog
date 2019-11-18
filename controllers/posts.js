@@ -3,7 +3,7 @@ const Post = require('../models/Post');
 
 exports.get_posts = async (req, res) => {
     try {
-        const posts = await Post.find();
+        const posts = await Post.find().populate('userId');
         res.json(posts);
     } catch (error) {
         res.json({errorMsg: error})
@@ -14,6 +14,9 @@ exports.post_post = async (req, res) => {
     const post = new Post({
         title: req.body.title,
         description: req.body.description,
+        userId: req.body.userId,
+        imageUrl: req.body.imageUrl,
+        tags: req.body.tags
     });
 
     try {

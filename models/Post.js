@@ -15,7 +15,9 @@ const PostSchema = new Schema({
         type: String,
         required: true
     },
-    tags: [],
+    tags: {
+        type: Array
+    },
     date: {
         type: Date,
         default: Date.now
