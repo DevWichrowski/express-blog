@@ -45,7 +45,7 @@ exports.delete_post = async (req, res) => {
 // Patch a specyfic field
 exports.patch_post = async (req, res) => {
     try {
-        const updatedPost = await Post.updateOne({_id: req.params.id}, {$set: {title: req.body.title}});
+        const updatedPost = await Post.updateOne({_id: req.params.id}, {$set: req.body});
         res.json(updatedPost);
     } catch (error) {
         res.json({error})
