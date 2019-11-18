@@ -16,13 +16,10 @@ router.delete('/:id', usersController.delete_user);
 
 router.patch('/:id', usersController.update_user);
 
-// router('/register');
-
 router.post('/login', usersController.user_login);
 
+router.post('/me/logout', auth, usersController.user_logout);
 
-// router('/logout');
-
-// router('/logoutall');
+router.post('/me/logoutall', auth, usersController.user_logout_all);
 
 module.exports = router;

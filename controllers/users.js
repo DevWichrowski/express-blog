@@ -10,19 +10,6 @@ exports.get_users = async (req, res) => {
 };
 
 exports.post_user = async (req, res) => {
-    // const user = new User({
-    //         login: req.body.login,
-    //         email: req.body.email,
-    //         password: req.body.password
-    //     }
-    // );
-    //
-    // try {
-    //     const newUser = await user.save();
-    //     res.json(newUser);
-    // } catch (error) {
-    //     res.json({error})
-    // }
     try {
         const user = new User(req.body)
         console.log('req body', req.body);
@@ -80,5 +67,33 @@ exports.user_login = async (req, res) => {
 };
 
 exports.get_user_me = async (req, res) => {
-    res.send(req.user)
+    try {
+        res.send(req.user)
+    } catch (error) {
+        res.send({error})
+    }
+};
+
+exports.user_logout = async (req, res) => {
+    // Log user out of the application
+    try {
+        req.user.tokens = req.user.tokens.filter((token) => {
+            return token.token != req.token
+        })
+        await req.user.save()
+        res.send()
+    } catch (error) {
+        res.status(500).send(error)
+    }
+};
+
+exports.user_logout_all = async (req, res) => {
+    // Log user out of all devices
+    try {
+        req.user.tokens.splice(0, req.user.tokens.length)
+        await req.user.save()
+        res.send()
+    } catch (error) {
+        res.status(500).send(error)
+    }
 };
