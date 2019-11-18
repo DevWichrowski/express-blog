@@ -7,12 +7,15 @@ require('dotenv/config');
 mongoose.Promise = global.Promise;
 
 const app = express();
+
 const postsRoute = require('./routes/posts');
+const usersRoute = require('./routes/users');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 app.use('/posts', postsRoute);
+app.use('/users', usersRoute);
 
 app.get('/', (req, res) => {
     res.send('<h1>Express homepage</h1>')
