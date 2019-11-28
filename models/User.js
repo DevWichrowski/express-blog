@@ -27,6 +27,10 @@ const UserSchema = new Schema({
         required: true,
         minLength: 7
     },
+    role: {
+        type: String,
+        required: true
+    },
     tokens: [{
         token: {
             type: String,

@@ -38,4 +38,4 @@ const connectToDatabase = () => {
 
 connectToDatabase();
 
-app.listen(process.env.PORT, () => console.log(`Listening on ${process.env.PORT}`));
+app.listen(3000, () => console.log(`Listening on 3000`));
