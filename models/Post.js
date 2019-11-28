@@ -22,11 +22,11 @@ const PostSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    userId: {
-        type: Schema.Types.ObjectId,
-        ref: 'User',
-        required: true
-    }
+    // userId: {
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'User',
+    //     required: true
+    // }
 });
 
 
