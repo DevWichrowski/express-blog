@@ -1,9 +1,10 @@
 const Post = require('../models/Post');
+const User = require('../models/User');
 
 
 exports.get_posts = async (req, res) => {
     try {
-        const posts = await Post.find().populate('userId');
+        const posts = await Post.find().populate('user', 'login');
 
         res.json(posts);
     } catch (error) {
@@ -15,7 +16,7 @@ exports.post_post = async (req, res) => {
     const post = new Post({
         title: req.body.title,
         description: req.body.description,
-        userId: req.body.userId,
+        user: req.user._id,
         imageUrl: req.body.imageUrl,
         tags: req.body.tags
     });
@@ -30,8 +31,8 @@ exports.post_post = async (req, res) => {
 
 exports.get_specific_post = async (req, res) => {
     try {
-        const post = await Post.findById(req.params.id);
-        res.json(post)
+        const post = await Post.findById(req.params.id).populate('user', 'login');
+        res.send(post)
     } catch (error) {
         return res.status(404).send({error: 'Post not found'})
     }
