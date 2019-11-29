@@ -5,7 +5,7 @@ const utils = require('../utils/helpers');
 
 exports.get_posts = async (req, res) => {
     try {
-        const posts = await Post.find().populate('user', 'login');
+        const posts = await Post.find().populate('user', 'nickname');
 
         res.json(posts);
     } catch (error) {
@@ -36,7 +36,7 @@ exports.post_post = async (req, res) => {
 
 exports.get_specific_post = async (req, res) => {
     try {
-        const post = await Post.findById(req.params.id).populate('user', 'login');
+        const post = await Post.findById(req.params.id).populate('user', 'nickname');
         res.send(post)
     } catch (error) {
         return res.status(404).send({error: 'Post not found'})
