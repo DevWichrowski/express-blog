@@ -25,8 +25,6 @@ exports.post_post = async (req, res) => {
     });
 
     try {
-        console.log('post', post);
-
         const savedPost = await post.save();
         res.send(savedPost);
     } catch (error) {
