@@ -25,6 +25,7 @@ app.get('/', (req, res) => {
 
 const connectToDatabase = () => {
     try {
+        mongoose.set('useCreateIndex', true);
         mongoose.connect(process.env.DB_CONNECTION, {
             useUnifiedTopology: true,
             useNewUrlParser: true

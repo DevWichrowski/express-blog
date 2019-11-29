@@ -51,13 +51,11 @@ exports.user_login = async (req, res) => {
     //Login a registered user
     try {
         const {login, password} = req.body;
-        console.log('req body', req.body)
         const user = await User.findByCredentials(login, password);
         if (!user) {
             return res.status(401).send({error: 'Login failed! Check authentication credentials'})
         }
         const token = await user.generateAuthToken();
-        // res.send({user, token})
         res.send({token})
     } catch (error) {
         res.status(400).send({error: 'Bad request'});

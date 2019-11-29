@@ -24,7 +24,7 @@ exports.post_post = async (req, res) => {
         const savedPost = await post.save();
         res.json(savedPost);
     } catch (error) {
-        return res.status(400).send({error: 'Bad request to the server'})
+        return res.status(400).send({error: 'Bad request'})
     }
 };
 
