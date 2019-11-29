@@ -28,6 +28,7 @@ const PostSchema = new Schema({
     },
     views: {
         type: Number,
+        default: 0,
     },
     readTime: {
         type: Number,
