@@ -1,6 +1,7 @@
 const Post = require('../models/Post');
 const User = require('../models/User');
 
+const utils = require('../utils/helpers');
 
 exports.get_posts = async (req, res) => {
     try {
@@ -18,12 +19,16 @@ exports.post_post = async (req, res) => {
         description: req.body.description,
         user: req.user._id,
         imageUrl: req.body.imageUrl,
-        tags: req.body.tags
+        tags: req.body.tags,
+        content: req.body.content,
+        readTime: req.body.content ? utils.calculateReadTime(req.body.content) : 0,
     });
 
     try {
+        console.log('post', post);
+
         const savedPost = await post.save();
-        res.json(savedPost);
+        res.send(savedPost);
     } catch (error) {
         return res.status(400).send({error: 'Bad request'})
     }
