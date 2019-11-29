@@ -11,6 +11,10 @@ const PostSchema = new Schema({
         type: String,
         required: true
     },
+    content: {
+        type: String,
+        required: true
+    },
     imageUrl: {
         type: String,
         required: true
@@ -21,6 +25,12 @@ const PostSchema = new Schema({
     date: {
         type: Date,
         default: Date.now
+    },
+    views: {
+        type: Number,
+    },
+    readTime: {
+        type: Number,
     },
     user: {
         type: Schema.Types.ObjectId,

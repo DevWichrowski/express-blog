@@ -27,6 +27,11 @@ const UserSchema = new Schema({
         required: true,
         minLength: 7
     },
+    username: {
+        type: String,
+        required: true,
+        minlength: 4
+    },
     role: {
         type: String,
         required: true
