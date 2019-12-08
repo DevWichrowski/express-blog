@@ -61,3 +61,13 @@ exports.patch_post = async (req, res) => {
         return res.status(404).send({error: 'Post not found'})
     }
 };
+
+exports.get_related_posts = async (req, res) => {
+    try {
+        const posts = await Post.find({ 'tags.value' : 'react'});
+        console.log('posts', posts);
+        res.json(posts);
+    } catch (error) {
+        return res.status(404).send({error: 'Posts not found'})
+    }
+};

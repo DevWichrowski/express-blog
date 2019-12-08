@@ -8,6 +8,8 @@ const postsController = require("../controllers/posts");
 
 router.get('/', postsController.get_posts);
 
+router.get('/related-posts', postsController.get_related_posts);
+
 router.post('/add', auth, postsController.post_post);
 
 router.get('/:id', postsController.get_specific_post);
