@@ -64,7 +64,7 @@ exports.patch_post = async (req, res) => {
 
 exports.get_related_posts = async (req, res) => {
     try {
-        const posts = await Post.find({ 'tags.value' : {$all: ['react', 'js']}});
+        const posts = await Post.find({'tags.value': {$in: req.body.tags}});
         console.log('req.params.tags', req.body.tags)
         console.log('posts', posts);
         res.json(posts);
