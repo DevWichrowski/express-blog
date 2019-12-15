@@ -5,7 +5,7 @@ const utils = require('../utils/helpers');
 
 exports.get_posts = async (req, res) => {
     try {
-        const posts = await Post.find().populate('user', 'nickname');
+        const posts = await Post.find().sort({date: 1}).populate('user', 'nickname');
 
         res.json(posts);
     } catch (error) {
@@ -82,6 +82,16 @@ exports.get_related_posts = async (req, res) => {
                 ]
             }
         });
+
+        res.json(posts);
+    } catch (error) {
+        return res.status(404).send({error: 'Posts not found'})
+    }
+};
+
+exports.get_newest_posts = async (req, res) => {
+    try {
+        const posts = await Post.find().sort({date: -1}).limit(10);
 
         res.json(posts);
     } catch (error) {
