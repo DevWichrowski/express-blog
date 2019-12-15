@@ -24,6 +24,10 @@ exports.post_post = async (req, res) => {
         readTime: req.body.content ? utils.calculateReadTime(req.body.content) : 0,
     });
 
+        if(req.body.tags.length > 5 ){
+            return res.status(400).send('Max 5 tags allowed')
+        }
+
     try {
         const savedPost = await post.save();
         res.send(savedPost);
@@ -55,6 +59,11 @@ exports.delete_post = async (req, res) => {
 // Patch a specyfic field
 exports.patch_post = async (req, res) => {
     try {
+
+        if(req.body.tags.length > 5 ){
+            return res.status(400).send('Max 5 tags allowed')
+        }
+
         const updatedPost = await Post.updateOne({_id: req.params.id}, {$set: req.body});
         res.json(updatedPost);
     } catch (error) {
