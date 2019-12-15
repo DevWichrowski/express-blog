@@ -64,16 +64,18 @@ exports.patch_post = async (req, res) => {
 
 exports.get_related_posts = async (req, res) => {
     try {
-        const posts = await Post.aggregate([
-            {$match: {"tags.value": {$in: req.body.tags}}},
-            {$project: {"tagsCopy": "$tags", "tags.value": 1}},
-            {$unwind: "$tags"},
-            {$match: {"tags.value": {$in: req.body.tags}}},
-            {$group: {"_id": "$_id", "noOfMatches": {$sum: 1}, "tags": {$first: "$tagsCopy"}}},
-            {$sort: {noOfMatches: -1}},
-            {$project: {"_id": 0, "noOfMatches": 1, tags: 1}},
-            {$match: {noOfMatches: {$eq: 2}}},
-        ]);
+        // const posts = await Post.aggregate([
+        //     {$match: {"tags.value": {$in: req.body.tags}}},
+        //     {$project: {"tagsCopy": "$tags", "tags.value": 1}},
+        //     {$unwind: "$tags"},
+        //     {$match: {"tags.value": {$in: req.body.tags}}},
+        //     {$group: {"_id": "$_id", "noOfMatches": {$sum: 1}, "tags": {$first: "$tagsCopy"}}},
+        //     {$sort: {noOfMatches: -1}},
+        //     {$project: {"_id": 0, "noOfMatches": 1, tags: 1}},
+        //     {$match: {noOfMatches: {$eq: 2}}},
+        // ]);
+
+        const posts = await Post.find({"tags.value": {$in: req.body.tags}});
 
         res.json(posts);
     } catch (error) {
