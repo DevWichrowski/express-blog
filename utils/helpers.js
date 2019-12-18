@@ -1,1 +1,2 @@
-exports.calculateReadTime = content => Math.ceil(content.length / 1050);
+exports.calculateReadTime = content => Math.ceil(content.length / 1000);
+

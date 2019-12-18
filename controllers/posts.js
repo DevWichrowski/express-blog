@@ -1,11 +1,12 @@
 const Post = require('../models/Post');
 const User = require('../models/User');
+const striptags = require('striptags');
 
 const utils = require('../utils/helpers');
 
 exports.get_posts = async (req, res) => {
     try {
-        const posts = await Post.find().populate('user', 'nickname');
+        const posts = await Post.find().sort({date: 1}).populate('user', 'nickname');
 
         res.json(posts);
     } catch (error) {
@@ -23,6 +24,10 @@ exports.post_post = async (req, res) => {
         content: req.body.content,
         readTime: req.body.content ? utils.calculateReadTime(req.body.content) : 0,
     });
+
+    if (req.body.tags.length > 5) {
+        return res.status(400).send('Max 5 tags allowed')
+    }
 
     try {
         const savedPost = await post.save();
@@ -54,10 +59,53 @@ exports.delete_post = async (req, res) => {
 
 // Patch a specyfic field
 exports.patch_post = async (req, res) => {
+    let readTime;
+
+    if (req.body.content) {
+        readTime = utils.calculateReadTime(striptags(req.body.content))
+        console.log('test')
+    }
+
     try {
-        const updatedPost = await Post.updateOne({_id: req.params.id}, {$set: req.body});
+
+        if (req.body.tags.length > 5) {
+            return res.status(400).send('Max 5 tags allowed')
+        }
+
+        const updatedPost = await Post.updateOne({
+            _id: req.params.id
+        }, {$set: req.body, readTime});
+        
         res.json(updatedPost);
     } catch (error) {
         return res.status(404).send({error: 'Post not found'})
+    }
+};
+
+exports.get_related_posts = async (req, res) => {
+    try {
+        const posts = await Post.find({
+            "tags.value": {$in: req.body.tags},
+            $expr: {
+                $gt: [
+                    {$size: {$setIntersection: ["$tags.value", req.body.tags]}},
+                    2
+                ]
+            }
+        });
+
+        res.json(posts);
+    } catch (error) {
+        return res.status(404).send({error: 'Posts not found'})
+    }
+};
+
+exports.get_newest_posts = async (req, res) => {
+    try {
+        const posts = await Post.find().sort({date: -1}).limit(10);
+
+        res.json(posts);
+    } catch (error) {
+        return res.status(404).send({error: 'Posts not found'})
     }
 };
