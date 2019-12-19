@@ -39,7 +39,7 @@ exports.post_post = async (req, res) => {
 
 exports.get_specific_post = async (req, res) => {
     try {
-        let post = await Post.findById(req.params.id).populate('user', 'nickname');
+        let post = await Post.findById(req.params.id).populate('user', ['nickname', 'avatar']);
         post.views += 1;
         await post.save();
         res.send(post)
@@ -75,7 +75,7 @@ exports.patch_post = async (req, res) => {
         const updatedPost = await Post.updateOne({
             _id: req.params.id
         }, {$set: req.body, readTime});
-        
+
         res.json(updatedPost);
     } catch (error) {
         return res.status(404).send({error: 'Post not found'})
