@@ -1,0 +1,62 @@
+@import "../../styles/colors";
+
+.navigation {
+  .navigation-bar {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: $black;
+    justify-content: space-between;
+
+    .nav-left-column {
+      display: flex;
+    }
+
+    .nav-right-column {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+
+      p {
+        margin-left: 20px;
+      }
+    }
+  }
+
+  .navigation-link {
+    color: white;
+    font-weight: normal;
+    outline: none;
+    text-decoration: none !important;
+    cursor: pointer;
+
+    a {
+      color: white;
+      outline: none;
+      text-decoration: none !important;
+    }
+
+    a:visited {
+      outline: none;
+      text-decoration: none !important;
+    }
+
+    a:-webkit-any-link {
+      color: -webkit-link;
+      cursor: pointer;
+      text-decoration: none !important;
+    }
+  }
+}
+
+
+a:-webkit-any-link {
+  color: -webkit-link;
+  cursor: pointer;
+  text-decoration: none !important;
+}
+
+.MuiDrawer-paper {
+  width: 250px !important;
+  background: #cfcfd4 !important;
+}

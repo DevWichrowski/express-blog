@@ -1,0 +1,103 @@
+@import "../../styles/mixins";
+@import "../../styles/colors";
+
+.single-post {
+  margin: 5% 0;
+
+  h2 {
+    margin-top: 0;
+  }
+
+  .single-page-content {
+    display: flex;
+
+
+    .title-container {
+      width: 90%;
+      margin: 0 auto;
+
+      h1 {
+        font-size: 32px;
+        line-height: 1.325;
+        text-align: center;
+      }
+    }
+
+    .left-column {
+      @include box-shadow;
+      background-color: $white;
+      width: 75%;
+      margin-right: 2%;
+      border-radius: 5px;
+    }
+
+    .right-column {
+      width: 28%;
+
+      p {
+        margin-top: 0;
+      }
+
+      .post-info-box {
+        margin-bottom: 5%;
+        @include post-box
+      }
+
+      .post-info-row {
+        display: flex;
+        align-content: center;
+        justify-content: center;
+      }
+
+      .time-views {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        margin-left: 10px;
+        margin-right: 5px;
+        font-weight: lighter;
+        cursor: pointer;
+
+        p {
+          margin-left: 5px;
+          margin-top: 3px;
+        }
+      }
+
+      .author-row {
+        margin-top: 15px;
+        margin-bottom: 15px;
+
+        .post-user-avatar {
+          margin: 0 auto;
+          width: 100px !important;
+          height: 100px !important;
+        }
+
+        .user-nickname {
+          margin-top: 5%;
+          text-transform: capitalize;
+          font-size: 24px;
+        }
+      }
+    }
+  }
+
+  .post-image {
+    //margin-top: 2%;
+    width: 100%;
+  }
+
+  .post-description {
+    margin: 2% auto;
+    width: 80%;
+    text-align: center;
+    font-size: 12px;
+  }
+
+  .post-content {
+    margin: 5% auto;
+    width: 70%;
+    text-align: left;
+  }
+}

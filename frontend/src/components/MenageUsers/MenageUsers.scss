@@ -1,0 +1,71 @@
+@import "../../styles/colors";
+
+.administrate-users {
+  margin: 3% auto;
+  width: 90%;
+
+  table {
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+  }
+
+  thead {
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+  }
+
+  th {
+    &:first-child {
+      border-top-left-radius: 5px;
+    }
+
+    &:last-child {
+      border-top-right-radius: 5px;
+    }
+  }
+
+  .user-paper {
+
+    .user-table {
+
+      .table-head {
+        background-color: $black;
+        color: $white;
+
+        .MuiTableRow-head {
+          border-radius: 20px !important;
+        }
+
+        .user-head-cell {
+          color: $white;
+        }
+      }
+    }
+  }
+
+  .buttons-container {
+    display: flex;
+    justify-content: flex-end;
+
+
+    .add-user-buttom {
+      width: 120px;
+      border-radius: 10px;
+      display: flex;
+      border: 2px solid $red;
+      padding: 2px;
+      cursor: pointer;
+      margin-bottom: 20px;
+
+      p {
+        margin: 2px;
+      }
+    }
+
+    .add-user-buttom:hover {
+      background-color: rgba(255, 0, 0, 0.11);
+      transition: background-color 0.3s;
+    }
+  }
+
+}

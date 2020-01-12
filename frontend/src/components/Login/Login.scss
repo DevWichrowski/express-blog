@@ -1,0 +1,20 @@
+@import "../../styles/colors";
+@import "../../styles/mixins";
+
+.login {
+
+  .login-form {
+    @include box-shadow;
+    width: 40%;
+    margin: 0 auto;
+    padding: 40px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+
+    .form-text-field {
+      margin-top: 2%;
+      margin-bottom: 2%;
+    }
+  }
+}

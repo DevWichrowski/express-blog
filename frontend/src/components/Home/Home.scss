@@ -1,0 +1,82 @@
+@import "../../styles/mixins.scss";
+@import "../../styles/colors.scss";
+
+.slider {
+    @include box-shadow();
+}
+
+.image-cont {
+    height: 400px;
+    cursor: pointer;
+    position: relative;
+
+    .cover-image {
+        object-fit: cover;
+        height: 400px;
+        width: 100%;
+        object-position: center;
+    }
+
+
+    .post-title {
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.5);
+        padding: 5px 30px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        margin-bottom: 30px;
+        font-size: 20px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        font-weight: bold;
+        color: b;
+        @include box-shadow();
+    }
+}
+
+.image-cont:hover {
+    opacity: 0.8;
+}
+
+.rest-posts {
+    display: flex;
+    flex-direction: row;
+    padding: 30px;
+    background-color: $grey;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .post {
+        width: 25%;
+        min-width: 250px;
+        height: 200px;
+        padding: 10px;
+        cursor: pointer;
+       
+
+        .image-conte {
+            position: relative;
+            width: 100%;
+            height: 100%;
+
+            img {
+                width: 100%;
+                height: 100%;    
+                @include box-shadow();
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+       
+    }
+
+    .post:hover {
+        .post-desc {
+            font-weight: bold;
+        }
+    }
+}
+
