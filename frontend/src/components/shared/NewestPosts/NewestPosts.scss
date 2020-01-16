@@ -1,0 +1,65 @@
+@import "../../../styles/mixins";
+@import "../../../styles/colors";
+
+.newest-posts {
+  margin-top: 2%;
+  margin-bottom: 2%;
+  width: 100%;
+  @include post-box
+}
+
+.newest-post-container {
+
+  .newest-post-img-container {
+    position: relative;
+    min-height: 200px;
+    height: 200px;
+    width: 250px;
+    padding: 0 10px;
+    cursor: pointer;
+
+    img {
+      height: 100%;
+      width: 100%;
+    }
+
+    .newest-post-info {
+      h3 {
+        font-size: 16px;
+        margin-bottom: 0;
+      }
+
+      .post-info {
+        display: flex;
+        justify-content: center;
+      }
+
+      .info-col {
+        margin-left: 10px;
+        margin-right: 10px;
+        display: flex;
+      }
+
+      .info-text {
+        margin-left: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: lighter;
+      }
+
+      .MuiSvgIcon-root {
+        width: 15px;
+      }
+
+      p {
+        margin: 0;
+      }
+    }
+  }
+
+  .newest-post-img-container:focus {
+    outline: none;
+  }
+}

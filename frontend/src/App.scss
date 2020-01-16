@@ -1,0 +1,12 @@
+@import "./styles/colors";
+@import "./styles/global";
+
+.App {
+  text-align: center;
+
+  .app-content {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+}

@@ -1,0 +1,14 @@
+@import "./colors";
+
+@mixin box-shadow {
+  -webkit-box-shadow: -1px 1px 10px -2px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -1px 1px 10px -2px rgba(0, 0, 0, 0.75);
+  box-shadow: -1px 1px 10px -2px rgba(0, 0, 0, 0.75);
+}
+
+@mixin post-box {
+  @include box-shadow;
+  background-color: $white;
+  border-radius: 5px;
+  padding: 10px 15px;
+}

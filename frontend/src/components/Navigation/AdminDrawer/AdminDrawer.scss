@@ -1,0 +1,13 @@
+@import "../../../styles/colors";
+
+.admin-drawer {
+  background-color: $black;
+  color: $orange;
+  height: 100%;
+
+  a {
+    color: $orange;
+    font-weight: normal !important;
+  }
+
+}

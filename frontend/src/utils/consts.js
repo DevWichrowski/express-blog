@@ -1,0 +1,1 @@
+export const DEFAULT_AVATAR = "https://img.favpng.com/17/3/18/computer-icons-user-profile-male-png-favpng-ZmC9dDrp9x27KFnnge0jKWKBs.jpg";

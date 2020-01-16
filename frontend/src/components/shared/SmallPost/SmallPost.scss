@@ -1,0 +1,51 @@
+@import "../../../styles/colors";
+
+.small-post {
+  margin-top: 5%;
+
+  .post-img {
+    width: 100%;
+  }
+
+  a {
+    font-size: 18px;
+    color: $black !important;
+    font-weight: lighter !important;
+    margin-top: 10px;
+    margin-bottom: 0;
+  }
+
+  .sp-info {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  }
+
+  .info-col {
+    margin-left: 10px;
+    margin-right: 10px;
+    display: flex;
+  }
+
+  .info-text {
+    margin-left: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: lighter;
+  }
+
+  .MuiSvgIcon-root {
+    width: 15px;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+
+  h4 {
+    margin-top: 10px;
+    margin-bottom: 0;
+  }
+}

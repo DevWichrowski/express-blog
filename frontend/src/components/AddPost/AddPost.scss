@@ -1,0 +1,34 @@
+.add-post {
+
+  .add-post-container {
+    margin: 0 auto;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+
+    .text-field {
+      margin-top: 1%;
+      margin-bottom: 1%;
+    }
+
+    .post-image {
+      margin: 1% auto;
+      max-width: 100%;
+    }
+
+    .html-editor {
+      height: 400px;
+    }
+
+    .tags-container {
+      margin-top: 2%;
+      margin-bottom: 2%;
+      padding: 10px;
+    }
+
+    .post-button-submit {
+      margin: 2% auto;
+      width: 50%;
+    }
+  }
+}

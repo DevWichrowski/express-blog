@@ -1,0 +1,66 @@
+@import "colors";
+@import "mixins";
+
+
+.action-icon {
+  cursor: pointer;
+}
+
+.MuiChip-root {
+  @include box-shadow;
+  background-color: $orange !important;
+  border-radius: 2px !important;
+  height: 25px !important;
+  margin: 0 5px 10px 5px;
+  color: #FBFBFD !important;
+}
+
+.MuiSvgIcon-root {
+  color: $red !important;
+}
+
+body {
+  color: $black;
+
+  .MuiButton-containedPrimary {
+    background-color: $orange;
+  }
+
+  .MuiButton-containedPrimary:hover {
+    background-color: $orange;
+  }
+
+  .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: $orange !important;
+  }
+
+  .MuiInputLabel-root.Mui-focused {
+    color: $orange;
+  }
+
+}
+
+a {
+  color: $orange !important;
+  font-weight: bolder !important;
+}
+
+h1 {
+  font-weight: lighter;
+}
+
+h2 {
+  font-weight: lighter;
+  font-size: 24px;
+}
+
+h3 {
+  font-weight: lighter;
+  font-size: 24px;
+}
+
+h4 {
+  font-weight: lighter;
+  font-size: 18px;
+  text-transform: capitalize;
+}
