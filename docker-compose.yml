@@ -1,0 +1,57 @@
+version: '3.3'
+services:
+  backend:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - '8000:8000'
+    links:
+      - mongodb
+    depends_on:
+      - mongodb
+    volumes:
+      - ./backend:/backend
+      - /backend/node_modules
+    restart: always
+    command: npm start
+    networks:
+      app:
+        aliases:
+          - backend
+
+  mongodb:
+    image: mongo:latest
+    container_name: "mongodb"
+    environment:
+      - MONGO_DATA_DIR=/data/db
+      - MONGO_LOG_DIR=/dev/null
+    volumes:
+      - ./data:/data/db
+    ports:
+      - 27017:27017
+    command: mongod
+    networks:
+      app:
+        aliases:
+          - mongodb
+
+  nginx:
+    image: nginx
+    links:
+      - "backend:backend"
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./nginx/build:/var/www/html
+      - ./nginx/cert.cer:/etc/nginx/certificate.crt
+      - ./nginx/privateorc.key:/etc/nginx/private.key
+    networks:
+      app:
+        aliases:
+          - nginx
+
+networks:
+  app:
