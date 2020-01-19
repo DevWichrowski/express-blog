@@ -35,23 +35,3 @@ services:
       app:
         aliases:
           - mongodb
-
-  nginx:
-    image: nginx
-    links:
-      - "backend:backend"
-    ports:
-      - 80:80
-      - 443:443
-    volumes:
-      - ./nginx/conf.d:/etc/nginx/conf.d
-      - ./nginx/build:/var/www/html
-      - ./nginx/cert.cer:/etc/nginx/certificate.crt
-      - ./nginx/privateorc.key:/etc/nginx/private.key
-    networks:
-      app:
-        aliases:
-          - nginx
-
-networks:
-  app:
