@@ -13,7 +13,7 @@ services:
     volumes:
       - ./backend:/backend
       - /backend/node_modules
-    restart: always
+    restart: alwaysforce
     command: npm start
     networks:
       app:
@@ -35,3 +35,6 @@ services:
       app:
         aliases:
           - mongodb
+
+networks:
+  app:
