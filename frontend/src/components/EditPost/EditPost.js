@@ -72,7 +72,7 @@ const EditPost = props => {
 
     return (
         <div className="edit-post">
-            <h3>Edit postt</h3>
+            <h3>Edit posttt</h3>
             <form noValidate autoComplete="off" className="edit-post-container">
                 <TextField className="text-field" id="standard-basic" variant="outlined" label="Title"
                            value={post ? post.title : ''} onChange={e => setPostTitle(e)}/>
