@@ -24,8 +24,5 @@ yarn-debug.log*
 yarn-error.log*
 /.idea
 ./idea
-.env
-./env
 /idea
-env
 data/

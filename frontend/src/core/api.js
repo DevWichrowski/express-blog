@@ -2,6 +2,7 @@ import axios from "axios";
 
 export const HOST = "http://localhost:8000";
 
+
 export const getAllPostsApi = () => {
     return axios.get(`${HOST}/posts`, {
         headers: {
