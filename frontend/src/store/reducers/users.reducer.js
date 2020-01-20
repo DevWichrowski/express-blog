@@ -41,6 +41,19 @@ export const usersReducer = (state = initialState, action) =>
                 draft.user = null;
                 break;
             }
+            case UsersActions.REGISTER_USER_PENDING: {
+                draft.pending = true;
+                break;
+            }
+            case UsersActions.REGISTER_USER_SUCCESS: {
+                draft.users = [...action.payload];
+                draft.pending = false;
+                break;
+            }
+            case UsersActions.REGISTER_USER_FAILURE: {
+                draft.pending = false;
+                break;
+            }
             default:
                 return state;
         }

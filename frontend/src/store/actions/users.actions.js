@@ -6,7 +6,12 @@ export const GET_USERS_PENDING = 'GET_USERS_PENDING';
 export const GET_USERS_SUCCESS = 'GET_USERS_SUCCESS';
 export const GET_USERS_FAILURE = 'GET_USERS_FAILURE';
 
+export const REGISTER_USER_PENDING = 'REGISTER_USER_PENDING';
+export const REGISTER_USER_SUCCESS = 'REGISTER_USER_SUCCESS';
+export const REGISTER_USER_FAILURE = 'REGISTER_USER_FAILURE';
+
 export const CLEAR_USER = "CLEAR_USER";
+
 
 export const getMyProfilePending = payload => ({
     type: GET_MY_PROFILE_PENDING,
@@ -37,6 +42,20 @@ export const getUsersSuccess = payload => ({
 export const getUsersFailure = payload => ({
     type: GET_USERS_FAILURE,
     payload
+});
+
+export const registerUserPending = payload => ({
+    type: REGISTER_USER_PENDING,
+    payload
+});
+
+export const registerUserSuccess = payload => ({
+    type: REGISTER_USER_SUCCESS,
+    payload
+});
+
+export const registerUserFailure = payload => ({
+    type: REGISTER_USER_FAILURE
 });
 
 export const clearUser = () => ({

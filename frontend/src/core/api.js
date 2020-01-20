@@ -2,7 +2,6 @@ import axios from "axios";
 
 export const HOST = "http://localhost:8000";
 
-
 export const getAllPostsApi = () => {
     return axios.get(`${HOST}/posts`, {
         headers: {
@@ -112,3 +111,14 @@ export const getUsersApi = () => {
         },
     });
 };
+
+export const postUser = (body) => {
+    // const token = localStorage.token;
+
+    return axios.post(`${HOST}/users/register`, body, {
+        headers: {
+            Accept: 'application/json',
+            'Content-type': 'application/json',
+        },
+    })
+}
