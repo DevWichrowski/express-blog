@@ -8,6 +8,16 @@
     align-content: center;
     width: 50%;
     margin: 0 auto;
+
+    .avatar-container {
+      display: flex;
+      justify-content: center;
+
+      .avatar {
+        width: 200px;
+        height: 200px;
+      }
+    }
   }
 
   .text-field {
