@@ -5,7 +5,7 @@ import Button from "@material-ui/core/Button";
 import {connect} from "react-redux";
 import {loginPending} from "../../store/actions/auth.actions";
 import {getUserSelector} from "../../store/selectors/users.selectors";
-import {useHistory} from "react-router-dom";
+import {NavLink, useHistory} from "react-router-dom";
 import {getAllPosts} from "../../store/selectors/posts.selectors";
 
 const Login = props => {
@@ -51,6 +51,10 @@ const Login = props => {
                 <Button variant="contained" color="primary" type="submit">
                     Login
                 </Button>
+
+                <NavLink to="/register-develop">
+                    <p>Register user - for develop purpose only</p>
+                </NavLink>
             </form>
         </div>
     );

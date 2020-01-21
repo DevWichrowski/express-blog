@@ -11,6 +11,7 @@ import Login from "./components/Login/Login";
 import ManagePosts from "./components/ManagePosts/ManagePosts";
 import SinglePost from "./components/SinglePost/SinglePost";
 import MenageUsers from "./components/MenageUsers/MenageUsers";
+import DevelopRegister from "./components/DevelopRegister/DevelopRegister";
 
 function App() {
     return (
@@ -25,6 +26,7 @@ function App() {
                     <Route path="/manage-posts" component={ManagePosts}/>
                     <Route path="/single-post/:id" component={SinglePost}/>
                     <Route path="/menage-users" component={MenageUsers}/>
+                    <Route path="/register-develop" component={DevelopRegister}/>
                 </div>
             </Router>
         </div>

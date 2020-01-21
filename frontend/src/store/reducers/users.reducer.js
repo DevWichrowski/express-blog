@@ -46,7 +46,7 @@ export const usersReducer = (state = initialState, action) =>
                 break;
             }
             case UsersActions.REGISTER_USER_SUCCESS: {
-                draft.users = [...action.payload];
+                draft.users = [...state.users, action.payload];
                 draft.pending = false;
                 break;
             }

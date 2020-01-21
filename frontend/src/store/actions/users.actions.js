@@ -39,9 +39,8 @@ export const getUsersSuccess = payload => ({
     payload
 });
 
-export const getUsersFailure = payload => ({
+export const getUsersFailure = () => ({
     type: GET_USERS_FAILURE,
-    payload
 });
 
 export const registerUserPending = payload => ({
@@ -54,7 +53,7 @@ export const registerUserSuccess = payload => ({
     payload
 });
 
-export const registerUserFailure = payload => ({
+export const registerUserFailure = () => ({
     type: REGISTER_USER_FAILURE
 });
 

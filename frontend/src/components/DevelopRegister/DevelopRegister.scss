@@ -1,0 +1,16 @@
+.register-develop-form {
+  width: 100%;
+
+  .register-develop-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    width: 50%;
+    margin: 0 auto;
+  }
+
+  .text-field {
+    padding: 10px;
+  }
+}
